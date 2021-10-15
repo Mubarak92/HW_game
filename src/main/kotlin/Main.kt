@@ -1,6 +1,6 @@
 fun main() {
     val name = "Madrigal"
-    var healthPoints = 4
+    var healthPoints = 55
     val isBlessed = true
     val isImmortal = false
     val karma = (Math.pow(Math.random(), (110 - healthPoints) / 100.0) * 20 ).toInt()
@@ -12,15 +12,12 @@ fun main() {
         in 16..20 -> "Green"
         else -> "NONE"
     }
-    println(karma)
+    println("Your karma: $karma")
     val auraVisible = isBlessed && healthPoints >50 || isImmortal
 
 
-    val auraColor = if (auraVisible)(Auracolor)else "None"
+    val auraColor = if (auraVisible)(Auracolor) else "None"
     //println(auraColor)
-
-    println("(Aura:$auraColor)" + "(Blessed: ${if (isBlessed) "Yes" else "No"})")
-
 
     val healthStatus = when (healthPoints) {
         100 -> "in in excelent condtion!"
@@ -34,6 +31,9 @@ fun main() {
         in 15..74 -> "looks pretty hurt."
         else ->"is in awful condition!"
     }
-    println(karma)
+
+    val statusFormatString = "(HP: $healthPoints)(Aura: $auraColor) -> $healthStatus"
+
+    println(statusFormatString)
     println("$name $healthStatus")
 }
